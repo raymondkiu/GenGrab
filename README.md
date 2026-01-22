@@ -1,2 +1,76 @@
 # GenGrab
 GenGrab: Download bacterial genome assemblies from public databases with metadata
+GenGrab is written in Bash and should run in most Linux OS, not tested in MacOS though. It is engineered to download bacterial genome assemblies from RefSeq or GenBank together with important metadata such as isolation source, country, host and related ftp for downloading, as well as assembly assession, bioproject and biosample etc. All downloaded genome assemblies will be renamed according to genus, species and strain names. All in one. Save your time and efforts!
+## Usage
+GenGrab has not been tested to download eukaryotic genome assemblies although in theory should work.
+```
+GenGrab: Download bacterial genomes from public databases with metadata
+
+USAGE:
+  $ ./GenGrab.sh -s "Genus species" [-g "assembly_level"] [-n NUM_GENOMES] [-d DATABASE]
+OPTIONS:
+  -s  Species name (required), e.g., "Enterococcus faecalis"
+  -g  Genome assembly level (optional, default=ALL)
+         Options: Complete Genome, Chromosome, Scaffold, Contig, etc.
+  -n  Number of genomes to download (optional, default=all)
+  -r  Randomise the genome download order (yes or no, default=no)
+  -d  Database to use: RefSeq or GenBank (optional, default=RefSeq)
+
+  e.g. ./GenGrab.sh -s Bifidobacterium bifidum -n 200 -d RefSeq
+
+AUTHOR:
+  Raymond Kiu r.k.o.kiu@bham.ac.uk
+VERSION:
+  2026.1
+```
+For example,
+```
+$ ./GenGrab.sh -s "Bifidobacterium longum" -n 4 -r yes -d RefSeq
+[1/10] URLs of RefSeq set up
+[2/10] Directories set up
+[3/10] Downloading assembly summary for RefSeq...
+[3/10] Assembly summary for RefSeq downloaded
+[4/10] Filtering assemblies for: Bifidobacterium longum
+[4/10] Filtering done
+[5/10] Getting a list of genome assemblies to download...
+[INFO] Randomizing genomes before selecting 4
+[5/10] Found 4 assemblies to download with valid strain names
+[6/10] Downloading genome FASTA files...
+(1/4 genomes) Downloading and processing: Bifidobacterium_longum_DS15_3.fna
+(2/4 genomes) Downloading and processing: Bifidobacterium_longum_RTP31015st2_H2_RTP31015_201113.fna
+(3/4 genomes) Downloading and processing: Bifidobacterium_longum_MSK.13.10.fna
+(4/4 genomes) Downloading and processing: Bifidobacterium_longum_LTBL16.fna
+[6/10] Successfully downloaded 4 genomes.
+[7/10] Cleaning FASTA filenames...
+[7/10] Done.
+[8/10] Extracting metadata:host, isolation_source, country...
+[INFO] Fetching metadata for BioSample: SAMN06464097
+[INFO] Fetching metadata for BioSample: SAMN10473362
+[INFO] Fetching metadata for BioSample: SAMN19731861
+[INFO] Fetching metadata for BioSample: SAMN41371914
+[8/10] Done.
+[9/10] Generate final metadata file.
+[9/10] Final metadata saved to: Bifidobacterium_longum_RefSeq/metadata/Bifidobacterium_longum_metadata_final.tsv
+[10/10] Cleaning up...
+[INFO] Bifidobacterium_longum_RefSeq/metadata/Bifidobacterium_longum_metadata.tsv removed
+[INFO] Bifidobacterium_longum_RefSeq/metadata/Bifidobacterium_longum_metadata_with_source.tsv removed
+[INFO] Bifidobacterium_longum_RefSeq/metadata/ftp_paths.txt removed
+[INFO] Bifidobacterium_longum_RefSeq/metadata/assembly_summary.txt removed
+[10/10] Done.
+Genomes directory : Bifidobacterium_longum_RefSeq/genomes
+Metadata directory: Bifidobacterium_longum_RefSeq/metadata
+Metadata tsv saved to: Bifidobacterium_longum_RefSeq/metadata/Bifidobacterium_longum_metadata_final.tsv
+Thank you for using GenGrab! Have a good day!
+```
+## Issues
+Please report any issues to the [issues page](https://github.com/raymondkiu/GenGrab/issues).
+
+## Citation
+If you use GenGrab for results in your publication, please cite:
+* Kiu R, *GenGrab: Download bacterial genome assemblies from public databases with metadata*, **GitHub** `https://github.com/raymondkiu/GenGrab`
+
+## License
+GenGrab is a free software licensed under [GPLv3](https://github.com/raymondkiu/sequence-stats/blob/master/LICENSE)
+
+## Author
+Raymond Kiu | r.k.o.kiu@bham.ac.uk
