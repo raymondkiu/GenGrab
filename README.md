@@ -62,6 +62,14 @@ Metadata directory: Bifidobacterium_longum_RefSeq/metadata
 Metadata tsv saved to: Bifidobacterium_longum_RefSeq/metadata/Bifidobacterium_longum_metadata_final.tsv
 Thank you for using GenGrab! Have a good day!
 ```
+For the metadata, you shall see:
+```
+assembly_accession      bioproject      biosample       refseq_category taxid   organism_name   infraspecific_name      assembly_level  host    isolation_source        country ftp_path        asm_submitter
+GCF_003094855.1 PRJNA224116     SAMN06464097    216816  216816  Bifidobacterium longum  strain=DS15_3   Contig  Homo sapiens    Commercial dietary supplements  USA:MD  https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/094/855/GCF_003094855.1_ASM309485v1    USFDA
+GCF_009728915.1 PRJNA224116     SAMN10473362    216816  216816  Bifidobacterium longum  strain=LTBL16   Complete Genome Homo sapiens    NA      China: GuangXi  https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/728/915/GCF_009728915.1_ASM972891v1    GuangXi University
+GCF_019131655.1 PRJNA224116     SAMN19731861    216816  216816  Bifidobacterium longum  strain=MSK.13.10        Contig  Homo sapiens    NA      USA:New York    https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/019/131/655/GCF_019131655.1_ASM1913165v1   University of Chicago
+GCF_039753935.1 PRJNA224116     SAMN41371914    216816  216816  Bifidobacterium longum  strain=RTP31015st2_H2_RTP31015_201113   Scaffold        Homo sapiens    NA      USA: New York   https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/039/753/935/GCF_039753935.1_ASM3975393v1   Icahn School of Medicine at Mount Sinai
+```
 ## Issues
 Please report any issues to the [issues page](https://github.com/raymondkiu/GenGrab/issues).
 
