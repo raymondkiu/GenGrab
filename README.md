@@ -1,6 +1,6 @@
 # GenGrab
-GenGrab: Download bacterial genome assemblies from public databases with metadata
-GenGrab is written in Bash and should run in most Linux OS, not tested in MacOS though. It is engineered to download bacterial genome assemblies from RefSeq or GenBank together with important metadata such as isolation source, country, host and related ftp for downloading, as well as assembly assession, bioproject and biosample etc. All downloaded genome assemblies will be renamed according to genus, species and strain names. All in one. Save your time and efforts!
+GenGrab: Download bacterial genome assemblies from public databases with metadata.
+<br>This user-friendly GenGrab is written in Bash and should run in most Linux OS, not tested in MacOS though. It is engineered to download bacterial genome assemblies from RefSeq or GenBank together with important metadata such as isolation source, country, host and related ftp for downloading, as well as assembly assession, bioproject and biosample etc. All downloaded genome assemblies will be renamed according to genus, species and strain names. All in one. Save your time and efforts! You can also randomise the download order as well. Have fun!
 ## Usage
 GenGrab has not been tested to download eukaryotic genome assemblies although in theory should work.
 ```
