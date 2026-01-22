@@ -70,7 +70,7 @@ If you use GenGrab for results in your publication, please cite:
 * Kiu R, *GenGrab: Download bacterial genome assemblies from public databases with metadata*, **GitHub** `https://github.com/raymondkiu/GenGrab`
 
 ## License
-GenGrab is a free software licensed under [GPLv3](https://github.com/raymondkiu/sequence-stats/blob/master/LICENSE)
+GenGrab is a free software licensed under [GPLv3](https://github.com/raymondkiu/GenGrab/blob/master/LICENSE)
 
 ## Author
 Raymond Kiu | r.k.o.kiu@bham.ac.uk
