@@ -1,13 +1,13 @@
-# GenGrab
-GenGrab: Download bacterial genome assemblies from public databases with metadata.
-<br>This user-friendly GenGrab is written in Bash and should run in most Linux OS, not tested in MacOS though. It is engineered to download bacterial genome assemblies from RefSeq or GenBank together with important metadata such as isolation source, country, host and related ftp for downloading, as well as assembly assession, bioproject and biosample etc. All downloaded genome assemblies will be renamed according to genus, species and strain names. All in one. Save your time and efforts! You can also randomise the download order as well. Have fun!
+# GenomeFetch
+GenomeFetch: a fast, user-friendly bacterial genome aasembly retrieval tool for RefSeq and GenBank.
+<br>This user-friendly genome retrievel tool is written in Bash and should run in most Linux OS, not tested in MacOS though. It is engineered to download bacterial genome assemblies from RefSeq or GenBank together with important metadata such as isolation source, country, host and related ftp for downloading, as well as assembly assession, bioproject and biosample etc. All downloaded genome assemblies (fasta) will be renamed according to genus, species and strain names. All in one. It will save your time and efforts! You can also randomise the download order as well. Have fun!
 ## Usage
-GenGrab has not been tested to download eukaryotic genome assemblies although in theory should work.
+GenomeFetch has not been tested to download viral/eukaryotic genome assemblies although in theory it should work the same.
 ```
-GenGrab: Download bacterial genomes from public databases with metadata
+GenomeFetch: a fast, user-friendly bacterial genome aasembly retrieval tool for RefSeq and GenBank
 
 USAGE:
-  $ ./GenGrab.sh -s "Genus species" [-g "assembly_level"] [-n NUM_GENOMES] [-d DATABASE]
+  $ ./GenomeFetch.sh -s "Genus species" [-g "assembly_level"] [-n NUM_GENOMES] [-d DATABASE]
 OPTIONS:
   -s  Species name (required), e.g., "Enterococcus faecalis"
   -g  Genome assembly level (optional, default=ALL)
@@ -16,7 +16,7 @@ OPTIONS:
   -r  Randomise the genome download order (yes or no, default=no)
   -d  Database to use: RefSeq or GenBank (optional, default=RefSeq)
 
-  e.g. ./GenGrab.sh -s Bifidobacterium bifidum -n 200 -d RefSeq
+  e.g. ./GenomeFetch.sh -s Bifidobacterium bifidum -n 200 -d RefSeq
 
 AUTHOR:
   Raymond Kiu r.k.o.kiu@bham.ac.uk
@@ -25,7 +25,7 @@ VERSION:
 ```
 For example,
 ```
-$ ./GenGrab.sh -s "Bifidobacterium longum" -n 4 -r yes -d RefSeq
+$ ./GenomeFetch.sh -s "Bifidobacterium longum" -n 4 -r yes -d RefSeq
 [1/10] URLs of RefSeq set up
 [2/10] Directories set up
 [3/10] Downloading assembly summary for RefSeq...
@@ -60,7 +60,7 @@ $ ./GenGrab.sh -s "Bifidobacterium longum" -n 4 -r yes -d RefSeq
 Genomes directory : Bifidobacterium_longum_RefSeq/genomes
 Metadata directory: Bifidobacterium_longum_RefSeq/metadata
 Metadata tsv saved to: Bifidobacterium_longum_RefSeq/metadata/Bifidobacterium_longum_metadata_final.tsv
-Thank you for using GenGrab! Have a good day!
+Thank you for using GenomeFetch! Have a good day!
 ```
 For the metadata, you shall see:
 ```
@@ -71,14 +71,14 @@ GCF_019131655.1 PRJNA224116     SAMN19731861    216816  216816  Bifidobacterium 
 GCF_039753935.1 PRJNA224116     SAMN41371914    216816  216816  Bifidobacterium longum  strain=RTP31015st2_H2_RTP31015_201113   Scaffold        Homo sapiens    NA      USA: New York   https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/039/753/935/GCF_039753935.1_ASM3975393v1   Icahn School of Medicine at Mount Sinai
 ```
 ## Issues
-Please report any issues to the [issues page](https://github.com/raymondkiu/GenGrab/issues).
+Please report any issues to the [issues page](https://github.com/raymondkiu/GenomeFetch/issues).
 
 ## Citation
-If you use GenGrab for results in your publication, please cite:
-* Kiu R, *GenGrab: Download bacterial genome assemblies from public databases with metadata*, **GitHub** `https://github.com/raymondkiu/GenGrab`
+If you use GenomeFetch for results in your publication, please cite:
+* Kiu R, *GenomeFetch: a fast, user-friendly bacterial genome aasembly retrieval tool for RefSeq and GenBank*, **GitHub** `https://github.com/raymondkiu/GenomeFetch`
 
 ## License
-GenGrab is a free software licensed under [GPLv3](https://github.com/raymondkiu/GenGrab/blob/master/LICENSE)
+GenomeFetch is a free software licensed under [GPLv3](https://github.com/raymondkiu/GenomeFetch/blob/master/LICENSE)
 
 ## Author
 Raymond Kiu | r.k.o.kiu@bham.ac.uk
