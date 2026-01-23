@@ -1,5 +1,5 @@
 # GenomeFetch
-<img src="https://github.com/raymondkiu/GenomeFetch/blob/85f9259023fc0694138f2779bd279c7dea0a6ffc/Files/GenomeFetchLogo.png" alt="GenomeFetch logo" width="300"/>
+<img src="https://github.com/raymondkiu/GenomeFetch/blob/85f9259023fc0694138f2779bd279c7dea0a6ffc/Files/GenomeFetchLogo.png" alt="GenomeFetch logo" width="400"/>
 GenomeFetch: a fast, user-friendly bacterial genome aasembly retrieval tool for RefSeq and GenBank.
 <br>This user-friendly genome retrievel tool is written in Bash and should run in most Linux OS, not tested in MacOS though. It is engineered to download bacterial genome assemblies from RefSeq or GenBank together with important metadata such as isolation source, country, host and related ftp for downloading, as well as assembly assession, bioproject and biosample etc. All downloaded genome assemblies (fasta) will be renamed according to genus, species and strain names. All in one. It will save you time and efforts! You can also randomise the download order as well. No complex installation needed just copy/download the script and there you go! 
 
