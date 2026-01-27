@@ -196,19 +196,33 @@ echo "[5/10] Found $COUNT assemblies to download with valid strain names"
 ###############################################################################
 echo "[6/10] Downloading genome FASTA files..."
 i=0
+
+# safe whitespace trimming (no xargs, no quote parsing)
+trim() {
+    local var="$1"
+    var="${var#"${var%%[![:space:]]*}"}"   # remove leading whitespace
+    var="${var%"${var##*[![:space:]]}"}"   # remove trailing whitespace
+    printf '%s' "$var"
+}
+
 while IFS=$'\t' read -r ftp strain biosample; do
-    # trim leading/trailing spaces
-    ftp=$(echo "$ftp" | xargs)
-    strain=$(echo "$strain" | xargs)
-    biosample=$(echo "$biosample" | xargs)
+    # trim leading/trailing spaces safely
+    ftp=$(trim "$ftp")
+    strain=$(trim "$strain")
+    biosample=$(trim "$biosample")
 
     # skip invalid lines
     [[ -z "$ftp" || -z "$strain" || "$strain" == "na" || -z "$biosample" || "$biosample" == "na" ]] && continue
 
     i=$((i+1))
-    # clean strain
-    strain_clean=$(echo "$strain" | sed 's/^strain=//')
-    SAFE_STRAIN=$(echo "$strain_clean" | tr -d "'" | tr -d '"' | tr ' /,()' '____' | tr -s '_')
+
+    # clean strain name
+    strain_clean=${strain#strain=}
+    SAFE_STRAIN=$(printf '%s' "$strain_clean" \
+        | tr -d "'" \
+        | tr -d '"' \
+        | tr ' /,()' '____' \
+        | tr -s '_')
 
     NEW_NAME="${SAFE_SPECIES}_${SAFE_STRAIN}.fna"
     DEST_FILE="${GENOME_DIR}/${NEW_NAME}"
@@ -220,7 +234,10 @@ while IFS=$'\t' read -r ftp strain biosample; do
     echo "($i/$COUNT genomes) Downloading and processing: $NEW_NAME"
 
     if wget -q -c -O "${GENOME_DIR}/${file}" "$url"; then
-        gunzip -f "${GENOME_DIR}/${file}" || { echo "[WARN] Failed to gunzip $file"; continue; }
+        gunzip -f "${GENOME_DIR}/${file}" || {
+            echo "[WARN] Failed to gunzip $file"
+            continue
+        }
         mv "${GENOME_DIR}/${file%.gz}" "$DEST_FILE"
     else
         echo "[WARN] Failed to download $url"
@@ -236,6 +253,7 @@ if [[ "$DOWNLOAD_COUNT" -eq 0 ]]; then
 else
     echo "[6/10] Successfully downloaded $DOWNLOAD_COUNT genomes."
 fi
+
 
 ###############################################################################
 # Step 7: Clean filenames
